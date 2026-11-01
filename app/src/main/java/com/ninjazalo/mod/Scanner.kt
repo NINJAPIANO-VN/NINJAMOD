@@ -6,11 +6,6 @@ import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import java.io.File
 
-/**
- * Quét class/method có tên chứa recall/undo/seen/typing/ttl... để tìm target hook (giống ZXScanner bên iOS).
- * Zalo bị obfuscate nên nhiều method sẽ không có tên dễ đọc; khi đó dùng jadx/DexKit trên APK Zalo.
- * Kết quả ghi vào Android/data/com.zing.zalo/files/ninjazalo-scan.txt
- */
 object Scanner {
     private val NAME_RE = Regex("recall|undo|revoke|seen|typing|ttl|delete|receipt", RegexOption.IGNORE_CASE)
     private val PKG_PREFIXES = arrayOf("com.zing", "com.zalo", "vn.com.vng", "com.vng")

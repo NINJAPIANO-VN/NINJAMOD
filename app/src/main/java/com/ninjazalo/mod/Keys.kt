@@ -1,6 +1,5 @@
 package com.ninjazalo.mod
 
-/** Tên khóa và giá trị mặc định (cùng tên với config của ZaloXposed / bản iOS), dùng chung cho UI và phía hook. */
 object Keys {
     const val MODULE_PKG = "com.ninjazalo.mod"
     const val TARGET_PKG = "com.zing.zalo"
@@ -21,7 +20,6 @@ object Keys {
     const val TTL_VALUE = "msg_ttl_value"
     const val MY_UID = "current_user_id"
 
-    // Phần thêm của bản Android
     const val EXTRA_PATTERNS = "extra_block_patterns"
     const val RULES_JSON = "rules_json"
     const val LOG_REQUESTS = "log_requests"

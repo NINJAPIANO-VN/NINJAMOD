@@ -2,7 +2,6 @@ package com.ninjazalo.mod
 
 import de.robv.android.xposed.XSharedPreferences
 
-/** Đọc cài đặt từ module bên trong tiến trình Zalo (chỉ dùng phía hook). */
 object HookConfig {
     private var prefs: XSharedPreferences? = null
     private var lastReload = 0L

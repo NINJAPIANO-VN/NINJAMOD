@@ -7,11 +7,6 @@ import de.robv.android.xposed.XposedHelpers
 import java.io.IOException
 import java.net.URL
 
-/**
- * Chặn request quảng cáo / QoS / tracking / Firebase (tương đương ZXNetwork bên iOS).
- * Các đoạn endpoint lấy từ HideAdsHook / DisableZaloTrackingHook của bản Android gốc.
- * Chỉ chặn được request đi qua java.net.URL hoặc OkHttp; socket tự viết thì không chặn được.
- */
 object NetBlocker {
     private val ADS = listOf("/group/ads", "/zpads/")
     private val QOS = listOf("/api/qos/", "/zalocloudqos")

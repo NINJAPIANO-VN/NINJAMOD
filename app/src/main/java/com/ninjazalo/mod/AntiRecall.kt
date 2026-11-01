@@ -11,11 +11,6 @@ import java.util.Date
 import java.util.LinkedHashMap
 import java.util.Locale
 
-/**
- * Port của ZXAntiRecall.m (bản iOS) / AntiRecallDeleteHook.processMsgPayload (bản Android gốc).
- * Gói "chat.undo" / "chat.delete" được viết lại thành tin "webchat" thường để client hiển thị
- * thông báo thay vì xóa tin. Tin thường được nhớ (chỉ text) để hiện lại nội dung đã bị xóa.
- */
 object AntiRecall {
     private const val SIGNATURE =
         "{\"properties\":{\"color\":0,\"size\":0,\"type\":0,\"subType\":0," +
@@ -27,7 +22,6 @@ object AntiRecall {
 
     private class Entry(val text: String, val from: String, val ts: String)
 
-    // ---------------------------------------------------------------- cache
     private val cache = object : LinkedHashMap<String, Entry>(256, 0.75f, false) {
         override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, Entry>?) = size > MAX_CACHE
     }
@@ -87,7 +81,6 @@ object AntiRecall {
         }.apply { isDaemon = true }.start()
     }
 
-    // -------------------------------------------------------------- helpers
     private fun opt(o: JSONObject, k: String): Any? = o.opt(k).takeIf { it != JSONObject.NULL }
 
     private fun idStr(v: Any?): String? = when {
@@ -165,8 +158,6 @@ object AntiRecall {
         .put("fromD", "ZaloXposed by ElectroHeavenVN")
         .put("ttl", 0)
 
-    // ------------------------------------------------------------- processing
-    /** Xử lý một payload có mảng "msg". Trả về true nếu đã sửa. */
     private fun processMsgPayload(payload: JSONObject): Boolean {
         var modified = false
         val msgs = payload.optJSONArray("msg") ?: return false
@@ -221,7 +212,6 @@ object AntiRecall {
         return modified
     }
 
-    /** Duyệt cây; gói thật có thể nằm sâu ở độ sâu khác nhau. */
     private fun walk(node: Any?): Boolean {
         var modified = false
         when (node) {
@@ -251,10 +241,6 @@ object AntiRecall {
         }
     }
 
-    /**
-     * Nhận JSONObject / JSONArray / String(JSON) / byte[](JSON).
-     * Trả về đối tượng thay thế nếu có sửa, ngược lại null.
-     */
     fun processObject(obj: Any?): Any? {
         if (obj == null) return null
         if (!HookConfig.bool(Keys.ANTI_RECALL) && !HookConfig.bool(Keys.ANTI_DELETE)) return null

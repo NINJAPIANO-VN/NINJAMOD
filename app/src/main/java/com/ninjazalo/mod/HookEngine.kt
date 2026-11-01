@@ -7,20 +7,10 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.reflect.Method
 
-/**
- * Hook theo rules.json (giống ZXHookEngine bên iOS). Mỗi rule trỏ vào một class/method của Zalo.
- * Chấp nhận mảng ở gốc `[ {...}, ... ]` hoặc `{ "rules": [ ... ] }`:
- *
- *  { "id": "block_send_seen", "enabled": true,
- *    "class": "a.b.c", "method": "d",
- *    "action": "skip" | "antirecall" | "ttl" | "log",
- *    "argIndex": 1,                       // đếm từ 1, dùng cho antirecall / log
- *    "configKey": "block_send_seen" }     // chỉ chạy khi công tắc này bật
- */
 object HookEngine {
 
     fun install(cl: ClassLoader) {
-        // Cho phép dòng chú thích bắt đầu bằng // (giống bản iOS)
+
         val raw = HookConfig.str(Keys.RULES_JSON, "").lines()
             .filterNot { it.trim().startsWith("//") }
             .joinToString("\n").trim()
