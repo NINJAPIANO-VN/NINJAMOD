@@ -18,7 +18,6 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Ký bằng debug key để APK cài được ngay. Muốn phát hành thì thay bằng keystore của bạn.
             signingConfig = signingConfigs.getByName("debug")
         }
     }
