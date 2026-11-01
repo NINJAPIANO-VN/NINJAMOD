@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="nz_bg">#0D0D12</color>
+    <color name="nz_surface">#191922</color>
+    <color name="nz_surface_alt">#22222D</color>
+    <color name="nz_gold">#D8B35C</color>
+    <color name="nz_gold_dark">#A6822F</color>
+    <color name="nz_text_primary">#F4F1E8</color>
+    <color name="nz_text_secondary">#9C97A8</color>
+    <color name="nz_divider">#2B2B38</color>
+    <color name="nz_danger">#E0654C</color>
+</resources>
