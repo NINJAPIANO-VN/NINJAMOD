@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NinjaZalo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/nz_gold</item>
+        <item name="colorPrimaryVariant">@color/nz_gold_dark</item>
+        <item name="colorOnPrimary">@color/nz_bg</item>
+        <item name="colorSecondary">@color/nz_gold</item>
+        <item name="colorSecondaryVariant">@color/nz_gold_dark</item>
+        <item name="colorOnSecondary">@color/nz_bg</item>
+        <item name="android:windowBackground">@color/nz_bg</item>
+        <item name="android:statusBarColor">@color/nz_bg</item>
+        <item name="android:navigationBarColor">@color/nz_bg</item>
+        <item name="android:textColorPrimary">@color/nz_text_primary</item>
+        <item name="android:textColorSecondary">@color/nz_text_secondary</item>
+        <item name="colorControlActivated">@color/nz_gold</item>
+        <item name="colorControlNormal">@color/nz_text_secondary</item>
+        <item name="colorSurface">@color/nz_surface</item>
+        <item name="colorOnSurface">@color/nz_text_primary</item>
+        <item name="editTextColor">@color/nz_text_primary</item>
+    </style>
+</resources>
