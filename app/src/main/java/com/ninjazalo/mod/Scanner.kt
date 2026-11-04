@@ -50,9 +50,9 @@ object Scanner {
                     }
                 }
                 out.writeText(sb.toString())
-                XposedBridge.log("[NinjaZaloModded] scan xong ($count class) -> ${out.absolutePath}")
+                XposedBridge.log("[NINJAMOD] scan xong ($count class) -> ${out.absolutePath}")
             } catch (t: Throwable) {
-                XposedBridge.log("[NinjaZaloModded] scan lỗi: $t")
+                XposedBridge.log("[NINJAMOD] scan lỗi: $t")
             }
         }.start()
     }

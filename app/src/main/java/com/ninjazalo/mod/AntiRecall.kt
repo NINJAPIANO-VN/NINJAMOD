@@ -262,7 +262,7 @@ object AntiRecall {
                 else -> null
             }
         } catch (t: Throwable) {
-            XposedBridge.log("[NinjaZaloModded] AntiRecall exception: $t")
+            XposedBridge.log("[NINJAMOD] AntiRecall exception: $t")
             null
         }
     }

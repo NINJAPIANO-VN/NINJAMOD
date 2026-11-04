@@ -15,7 +15,7 @@ object HookEngine {
             .filterNot { it.trim().startsWith("//") }
             .joinToString("\n").trim()
         if (raw.isEmpty()) {
-            XposedBridge.log("[NinjaZaloModded] rules.json trống, bỏ qua HookEngine")
+            XposedBridge.log("[NINJAMOD] rules.json trống, bỏ qua HookEngine")
             return
         }
         val rules: JSONArray = if (raw.startsWith("[")) JSONArray(raw) else JSONObject(raw).optJSONArray("rules") ?: return
@@ -37,10 +37,10 @@ object HookEngine {
                         r.optLong("returnValue", 0L)
                     )
                 )
-                if (hooks.isEmpty()) XposedBridge.log("[NinjaZaloModded] [$id] không thấy method $cls#$method")
-                else XposedBridge.log("[NinjaZaloModded] [$id] hook OK $cls#$method ($action) x${hooks.size}")
+                if (hooks.isEmpty()) XposedBridge.log("[NINJAMOD] [$id] không thấy method $cls#$method")
+                else XposedBridge.log("[NINJAMOD] [$id] hook OK $cls#$method ($action) x${hooks.size}")
             } catch (t: Throwable) {
-                XposedBridge.log("[NinjaZaloModded] [$id] hook FAIL $cls#$method: $t")
+                XposedBridge.log("[NINJAMOD] [$id] hook FAIL $cls#$method: $t")
             }
         }
     }
@@ -82,12 +82,12 @@ object HookEngine {
                         AntiRecall.processObject(param.args[idx])?.let { param.args[idx] = it }
                     }
                     "log" -> XposedBridge.log(
-                        "[NinjaZaloModded][log] ${param.method} args=" +
+                        "[NINJAMOD][log] ${param.method} args=" +
                             param.args.joinToString { it?.toString()?.take(300) ?: "null" }
                     )
                 }
             } catch (t: Throwable) {
-                XposedBridge.log("[NinjaZaloModded] rule error: $t")
+                XposedBridge.log("[NINJAMOD] rule error: $t")
             }
         }
 
@@ -98,7 +98,7 @@ object HookEngine {
                 val rt = (param.method as? Method)?.returnType
                 numberFor(rt, HookConfig.long(Keys.TTL_VALUE, 0L))?.let { param.result = it }
             } catch (t: Throwable) {
-                XposedBridge.log("[NinjaZaloModded] ttl error: $t")
+                XposedBridge.log("[NINJAMOD] ttl error: $t")
             }
         }
     }

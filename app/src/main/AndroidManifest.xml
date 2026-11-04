@@ -3,7 +3,7 @@
 
     <application
         android:icon="@android:drawable/sym_def_app_icon"
-        android:label="NinjaZaloModded"
+        android:label="NINJAMOD"
         android:theme="@style/Theme.NinjaZalo">
 
         <meta-data
@@ -11,7 +11,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="NinjaZaloModded - chặn quảng cáo/tracking, chống thu hồi tin nhắn cho Zalo" />
+            android:value="NINJAMOD - chặn quảng cáo/tracking, chống thu hồi tin nhắn cho Zalo" />
         <meta-data
             android:name="xposedminversion"
             android:value="93" />

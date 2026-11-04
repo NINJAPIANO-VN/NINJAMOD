@@ -43,9 +43,9 @@ object NetBlocker {
             try {
                 val url = if (param.thisObject is URL) param.thisObject.toString() else urlOf(param.args.getOrNull(0))
                 if (url == null) return
-                if (HookConfig.bool(Keys.LOG_REQUESTS)) XposedBridge.log("[NinjaZaloModded][net] $url")
+                if (HookConfig.bool(Keys.LOG_REQUESTS)) XposedBridge.log("[NINJAMOD][net] $url")
                 if (shouldBlock(url)) {
-                    XposedBridge.log("[NinjaZaloModded] blocked $url")
+                    XposedBridge.log("[NINJAMOD] blocked $url")
                     param.throwable = IOException("Blocked by NinjaZalo")
                 }
             } catch (_: Throwable) {
@@ -64,12 +64,12 @@ object NetBlocker {
 
         XposedHelpers.findClassIfExists("okhttp3.OkHttpClient", cl)?.let {
             XposedBridge.hookAllMethods(it, "newCall", netHook)
-            XposedBridge.log("[NinjaZaloModded] hooked OkHttp")
+            XposedBridge.log("[NINJAMOD] hooked OkHttp")
         }
 
         XposedHelpers.findClassIfExists("com.google.firebase.analytics.FirebaseAnalytics", cl)?.let {
             XposedBridge.hookAllMethods(it, "logEvent", firebaseHook)
-            XposedBridge.log("[NinjaZaloModded] hooked FirebaseAnalytics.logEvent")
+            XposedBridge.log("[NINJAMOD] hooked FirebaseAnalytics.logEvent")
         }
     }
 }

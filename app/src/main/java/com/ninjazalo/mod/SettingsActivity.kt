@@ -124,14 +124,14 @@ class SettingsActivity : Activity() {
         orientation = LinearLayout.VERTICAL
         setPadding(0, 0, 0, dp24)
         addView(TextView(this@SettingsActivity).apply {
-            text = "NINJAZALO"
+            text = "NINJAMOD"
             setTextColor(gold())
             textSize = 28f
             letterSpacing = 0.08f
             setTypeface(Typeface.DEFAULT_BOLD)
         })
         addView(TextView(this@SettingsActivity).apply {
-            text = "MODDED"
+            text = "ZALO SETTINGS"
             setTextColor(textSecondary())
             textSize = 13f
             letterSpacing = 0.3f
